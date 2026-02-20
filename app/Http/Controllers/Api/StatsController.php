@@ -18,7 +18,6 @@ class StatsController extends Controller
 
         $inactiveMembers = $totalMembers - $activeMembers;
 
-        // Count distinct cities that are not null or empty
         $coveredCitiesQuery = clone $memberQuery;
         $coveredCities = $coveredCitiesQuery->whereNotNull('ville')
             ->where('ville', '!=', '')

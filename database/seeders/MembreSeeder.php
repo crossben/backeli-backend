@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class MembreSeeder extends Seeder
 {
@@ -16,7 +17,7 @@ class MembreSeeder extends Seeder
         $competences = ['PHP, Laravel', 'Vue.js, Tailwind', 'Node.js, React', 'Python, Django', 'Java, Spring'];
 
         for ($i = 1; $i <= 20; $i++) {
-            \App\Models\User::create([
+            User::create([
                 'name' => 'Nom' . $i,
                 'prenom' => 'Prenom' . $i,
                 'email' => 'membre' . $i . '@example.com',

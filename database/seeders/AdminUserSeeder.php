@@ -20,13 +20,5 @@ class AdminUserSeeder extends Seeder
             'role' => 'admin',
             'password' => Hash::make('password'),
         ]);
-
-        User::create([
-            'name' => 'Member',
-            'prenom' => 'Super',
-            'email' => 'member@bakeli.sn',
-            'role' => 'member',
-            'password' => Hash::make('password'),
-        ]);
     }
 }

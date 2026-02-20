@@ -55,9 +55,8 @@ class MemberController extends Controller
         $createData = $validated;
         $createData['role'] = 'member';
 
-        // Members might not have a password set directly through this API, provide a dummy one or handle it based on business rules
         if (!isset($createData['password'])) {
-            $createData['password'] = \Illuminate\Support\Facades\Hash::make('password'); // Default password for member created by admin
+            $createData['password'] = \Illuminate\Support\Facades\Hash::make('password');
         } else {
             $createData['password'] = \Illuminate\Support\Facades\Hash::make($createData['password']);
         }
