@@ -15,11 +15,13 @@ class Membre extends Model
         'competences',
         'statut',
         'date_naissance',
+        'role',
         'adresse',
     ];
 
     protected $casts = [
         'statut' => 'boolean',
         'date_naissance' => 'date',
+        'role' => 'string',
     ];
 }

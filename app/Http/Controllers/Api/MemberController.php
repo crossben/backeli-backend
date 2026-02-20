@@ -10,9 +10,10 @@ class MemberController extends Controller
     /**
      * Display a listing of the resource.
      */
+
     public function index(Request $request)
     {
-        $query = \App\Models\Membre::query();
+        $query = \App\Models\Membre::where('role', 'member');
 
         if ($request->filled('search')) {
             $search = $request->search;
