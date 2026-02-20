@@ -16,10 +16,12 @@ class MembreSeeder extends Seeder
         $competences = ['PHP, Laravel', 'Vue.js, Tailwind', 'Node.js, React', 'Python, Django', 'Java, Spring'];
 
         for ($i = 1; $i <= 20; $i++) {
-            \App\Models\Membre::create([
-                'nom' => 'Nom' . $i,
+            \App\Models\User::create([
+                'name' => 'Nom' . $i,
                 'prenom' => 'Prenom' . $i,
                 'email' => 'membre' . $i . '@example.com',
+                'role' => 'member',
+                'password' => \Illuminate\Support\Facades\Hash::make('password'),
                 'telephone' => '+221 77 ' . rand(100, 999) . ' ' . rand(1000, 9999),
                 'ville' => $villes[array_rand($villes)],
                 'competences' => $competences[array_rand($competences)],

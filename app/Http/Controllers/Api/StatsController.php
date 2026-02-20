@@ -9,12 +9,18 @@ class StatsController extends Controller
 {
     public function index()
     {
-        $totalMembers = \App\Models\Membre::count();
-        $activeMembers = \App\Models\Membre::where('statut', true)->count();
+        $memberQuery = \App\Models\User::where('role', 'member');
+        $totalMembers = clone $memberQuery;
+        $totalMembers = $totalMembers->count();
+
+        $activeMembers = clone $memberQuery;
+        $activeMembers = $activeMembers->where('statut', true)->count();
+
         $inactiveMembers = $totalMembers - $activeMembers;
 
         // Count distinct cities that are not null or empty
-        $coveredCities = \App\Models\Membre::whereNotNull('ville')
+        $coveredCitiesQuery = clone $memberQuery;
+        $coveredCities = $coveredCitiesQuery->whereNotNull('ville')
             ->where('ville', '!=', '')
             ->distinct('ville')
             ->count('ville');
