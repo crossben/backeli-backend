@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->text('competences')->nullable();
             $table->boolean('statut')->default(true); // true = actif, false = inactif
             $table->date('date_naissance')->nullable();
+            $table->enum('role', ['membre', 'admin'])->default('membre');
             $table->text('adresse')->nullable();
             $table->timestamps();
         });
